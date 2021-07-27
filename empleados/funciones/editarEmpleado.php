@@ -46,7 +46,8 @@
 
       $query = "UPDATE empleado set cedula = '$cedula', nombre = '$nombre', apellido = '$apellido',
                 direccion = '$direccion', correo= '$correo', password='$password', cargo_codigo= '$cargo_codigo',
-                bodega_numero= " . (isset($bodega_numero) ? "'$bodega_numero'" : "NULL") . "  WHERE cedula = '$id'";
+                bodega_numero = " . (isset($bodega_numero) ? "'$bodega_numero'" : "NULL") . "
+                 WHERE cedula = '$id'";
 
       mysqli_query($con, $query);
 
@@ -62,14 +63,47 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registro de empleados</title>
+    <title>Editar Empleado</title>
+    <link rel="stylesheet" href="../../style.css">
+  <link rel="stylesheet" href="../../form.css">
+
 
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
 
 </head>
 <body>
-<div class="container" >
+
+<nav class="navbar navbar-expand-lg  nav fixed-top">
+    <div class="container">
+      <a class="navbar-brand logoNav" href="../../aplicacion.php">
+        <img src="../../imagenes/logoNoBg.svg" alt="" class="logo d-inline-block align-text-top">
+      </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="../../aplicacion.php">Home
+              <span class="sr-only">(current)</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="../../reportes/vistas/reportes.php">Reportes</a>
+          </li>
+
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+
+
+
+
+<div class="container registro" >
+  <h2>Editar Empleado</h2>
 <form id="registEmpleado-form" class="form" action="editarEmpleado.php?id=<?php echo $_GET['id'];?>" method="POST">
   <div class="form-row">
     <div class="form-group col-md-6">
@@ -135,7 +169,7 @@
     </div>
   </div>
   
-  <button type="submit" name="editarEmpleado" class="btn btn-primary">Editar</button>
+  <button type="submit" name="editarEmpleado" class="btn btnForm btnSubmit">Editar</button>
 </form>
 </div>
 

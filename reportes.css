@@ -1,0 +1,38 @@
+.reportesContainer {
+    color: #88b06a;
+    text-decoration: none;
+}
+
+.reportesContainer:hover {
+    color: #88b06a;
+}
+
+.reportesImgContainer {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    object-position: center center;
+}
+
+.reportesImgContainer img {
+    width: 100%;
+    height: 100%;
+}
+
+a,
+a:hover {
+    color: #88b06a;
+    text-decoration: none;
+}
+
+.listaReportes {
+    color: #88b06a;
+}
+
+.listaReportes li a {
+    color: #000;
+}
+
+.listaReportes li a:hover {
+    color: #88b06a;
+}

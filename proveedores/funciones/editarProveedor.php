@@ -1,39 +1,34 @@
 <?php
-  
-  include 'db.php';
-  $con = mysqli_connect($host,$user,$pass,$db);
 
-  if(isset($_GET['id']))
-  {
-      $id= $_GET['id'];
-      $query = "SELECT * FROM proveedor WHERE rut= '$id' ";
-      $result =$con->query($query);
+include 'db.php';
+$con = mysqli_connect($host, $user, $pass, $db);
 
-      //si almenos tengo un resultado
-      if(mysqli_num_rows($result)>0)
-     {
-       $row = mysqli_fetch_array($result);
-       $rut=$row['rut'];
-       $nombre=$row['nombre'];
-       $email= $row['email'];
-     }
-    
+if (isset($_GET['id'])) {
+  $id = $_GET['id'];
+  $query = "SELECT * FROM proveedor WHERE rut= '$id' ";
+  $result = $con->query($query);
+
+  //si almenos tengo un resultado
+  if (mysqli_num_rows($result) > 0) {
+    $row = mysqli_fetch_array($result);
+    $rut = $row['rut'];
+    $nombre = $row['nombre'];
+    $email = $row['email'];
   }
+}
 
-  if(isset($_POST['editarProveedor']))
-  {
-      $id=$_GET['id'];
-      $rut = $_POST['rut'];
-      $nombre=$_POST['nombreProveedor'];
-      $email= $_POST['emailProveedor'];
+if (isset($_POST['editarProveedor'])) {
+  $id = $_GET['id'];
+  $rut = $_POST['rut'];
+  $nombre = $_POST['nombreProveedor'];
+  $email = $_POST['emailProveedor'];
 
-      $query = "UPDATE proveedor set rut = '$rut', nombre = '$nombre', email = '$email' WHERE rut='$id'";
+  $query = "UPDATE proveedor set rut = '$rut', nombre = '$nombre', email = '$email' WHERE rut='$id'";
 
-      mysqli_query($con, $query);
+  mysqli_query($con, $query);
 
-      header("Location: ../vistas/vistaProveedores.php");
-      
-  }
+  header("Location: ../vistas/vistaProveedores.php");
+}
 
 ?>
 
@@ -49,70 +44,71 @@
 
   <title>Proveedor</title>
 
-  <!-- Bootstrap core CSS -->
-  <link href="../../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="../../style.css">
+  <link rel="stylesheet" href="../../form.css">
 
-  <!-- Custom styles for this template -->
-  <link href="../../css/small-buSsiness.css" rel="stylesheet">
+  <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+
+  <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+
+
   <script src="https://kit.fontawesome.com/99f017d6bc.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
 
   <!-- Navigation -->
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+  <nav class="navbar navbar-expand-lg  nav fixed-top">
     <div class="container">
-      <a class="navbar-brand" href="../../aplicacion.php">Distri-Grajales</a>
+      <a class="navbar-brand logoNav" href="../../aplicacion.php">
+        <img src="../../imagenes/logoNoBg.svg" alt="" class="logo d-inline-block align-text-top">
+      </a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ml-auto">
           <li class="nav-item active">
-            <a class="nav-link" href="#">Home
+            <a class="nav-link" href="../../aplicacion.php">Home
               <span class="sr-only">(current)</span>
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">About</a>
+            <a class="nav-link" href="../../reportes/vistas/reportes.php">Reportes</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Services</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Contact</a>
-          </li>
+
         </ul>
       </div>
     </div>
   </nav>
 
   <br><br><br><br>
-  <!-- Page Content -->
-  <div class="container">
-  
-  <form id="registEmpleado-form" class="form" action="editarProveedor.php?id=<?php echo $_GET['id'];?>" method="POST">
-  <div class="form-row">
-    <div class="form-group col-md-6">
-      <label for="inputEmail4">Nombre Empresa</label>
-      <input type="text" value="<?php echo $nombre; ?>" name="nombreProveedor" class="form-control" id="nombreProvee" placeholder="Proveedor">
-    </div>
-    <div class="form-group col-md-6">
-      <label for="inputPassword4">Email</label>
-      <input type="email" value="<?php echo $email; ?>" name="emailProveedor" class="form-control" id="emailProvee" placeholder="email">
-    </div>
 
-    
-    <div class="form-group col-md-4">
-      <label for="inputCity">rut</label>
-      <input type="text" value="<?php echo $rut; ?>" name="rut" class="form-control" id="rutProvee">
-    </div>
-    </div>
+  <div class="container d-flex align-items-center justify-content-center mt-5 flex-column">
+    <h2 class="mb-5">Editar Proveedor</h2>
+    <form id="registEmpleado-form" class="editForm" action="editarProveedor.php?id=<?php echo $_GET['id']; ?>" method="POST">
+      <div class="form-group">
+        <label for="inputEmail4">Nombre Empresa</label>
+        <input type="text" value="<?php echo $nombre; ?>" name="nombreProveedor" class="form-control" id="nombreProvee" placeholder="Proveedor">
 
-    <button type="submit" name="editarProveedor" class="btn btn-primary">Guardar</button>
+      </div>
+      <div class="form-group">
+        <label for="inputPassword4">Email</label>
+        <input type="email" value="<?php echo $email; ?>" name="emailProveedor" class="form-control" id="emailProvee" placeholder="email">
+      </div>
+      <div class="form-group">
+        <label for="inputCity">rut</label>
+        <input type="text" value="<?php echo $rut; ?>" name="rut" class="form-control" id="rutProvee">
+      </div>
+      <div class="d-flex flex-row align-items-center justify-content-center">
+        <button type="submit" name="editarProveedor" class="btn btnForm w-75">Guardar</button>
+      </div>
+    </form>
+  </div>
 
-   </form>
-</div>
+
 
 
   <!-- Bootstrap core JavaScript -->
@@ -122,4 +118,3 @@
 </body>
 
 </html>
-

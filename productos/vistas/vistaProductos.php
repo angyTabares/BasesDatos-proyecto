@@ -15,39 +15,41 @@ $con = mysqli_connect($host,$user,$pass,$db);
 
   <title>Productos</title>
 
-  <!-- Bootstrap core CSS -->
-  <link href="../../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="../../style.css">
+  <link rel="stylesheet" href="../../form.css">
 
-  <!-- Custom styles for this template -->
-  <link href="../../css/small-buSsiness.css" rel="stylesheet">
+  <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+
+  <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+
+
   <script src="https://kit.fontawesome.com/99f017d6bc.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
 
   <!-- Navigation -->
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+  <nav class="navbar navbar-expand-lg  nav fixed-top">
     <div class="container">
-      <a class="navbar-brand" href="../../aplicacion.php">Distri-Grajales</a>
+      <a class="navbar-brand logoNav" href="../../aplicacion.php">
+        <img src="../../imagenes/logoNoBg.svg" alt="" class="logo d-inline-block align-text-top">
+      </a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ml-auto">
           <li class="nav-item active">
-            <a class="nav-link" href="#">Home
+            <a class="nav-link" href="../../aplicacion.php">Home
               <span class="sr-only">(current)</span>
             </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">About</a>
+            <a class="nav-link" href="../../reportes/vistas/reportes.php">Reportes</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Services</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Contact</a>
-          </li>
+
         </ul>
       </div>
     </div>
@@ -56,7 +58,7 @@ $con = mysqli_connect($host,$user,$pass,$db);
   <br><br><br><br>
   <!-- Page Content -->
   <div class="container">
-  
+  <h2 class="mb-3">Nuevo Producto</h2>
   <form id="registProveedor-form" class="form" action="../funciones/guardarProducto.php" method="POST">
   <div class="form-row">
     <div class="form-group col-md-6">
@@ -65,13 +67,13 @@ $con = mysqli_connect($host,$user,$pass,$db);
     </div>
     <div class="form-group col-md-6">
       <label for="inputPassword4">Nombre</label>
-      <input type="text" name="nombreP" class="form-control" id="nombrePro" placeholder="nombre">
+      <input type="text" name="nombreP" class="form-control" id="nombrePro" placeholder="Nombre">
     </div>
 
     
     <div class="form-group col-md-2">
       <label for="inputCity">Precio</label>
-      <input type="text" name="precioP" class="form-control" id="precioPdto">
+      <input type="text" name="precioP" class="form-control" id="precioPdto" placeholder="Precio">
     </div>
 
     <input type="hidden" id="marcaOculta" name="codigoMarca">
@@ -95,7 +97,7 @@ $con = mysqli_connect($host,$user,$pass,$db);
  
     </div>
 
-    <button type="submit" name="guardarProducto" class="btn btn-primary">Guardar</button>
+    <button type="submit" name="guardarProducto" class="btn btnForm">Guardar</button>
 
    </form>
 </div>
@@ -114,7 +116,7 @@ selectElement.addEventListener('change', (event) => {
 <div class="container">
  
  <table class="table">
-  <thead class="thead-dark">
+  <thead class="thead-custom">
     <tr>
       <th scope="col">Codigo</th>
       <th scope="col">Nombre</th>
@@ -145,10 +147,10 @@ selectElement.addEventListener('change', (event) => {
                            ?>
                            <td><?php echo $marcaC?></td>
                            <td>
-                              <a href="../funciones/editarProducto.php?id=<?php echo $row['codigo']?>" class="btn btn-secondary">
+                              <a href="../funciones/editarProducto.php?id=<?php echo $row['codigo']?>" class="btn btn editIcon">
                                  <i class= "fas fa-marker"></i>
                               </a>
-                              <a href="../funciones/borrarProducto.php?id=<?php echo $row['codigo']?>" class="btn btn-danger">
+                              <a href="../funciones/borrarProducto.php?id=<?php echo $row['codigo']?>" class="btn btn deleteIcon">
                                  <i class="far fa-trash-alt"></i>
                               </a>
                            </td>
