@@ -33,9 +33,7 @@
               <span class="sr-only">(current)</span>
             </a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="reportes/vistas/reportes.php">Reportes</a>
-          </li>
+          
         
         </ul>
       </div>
