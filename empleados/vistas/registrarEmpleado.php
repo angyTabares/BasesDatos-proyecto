@@ -55,9 +55,8 @@ $con = mysqli_connect($host, $user, $pass, $db);
     </div>
   </nav>
 
-
-
-
+  <br><br>
+<br><br>
   <div class="container ">
     <form id="registEmpleado-form" class="form" action="../funciones/guardarEmpleado.php" method="POST">
       <div class="form-row">

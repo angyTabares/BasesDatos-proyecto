@@ -61,7 +61,6 @@
                           <input type="password" name="password" id="password" class="form-control">
                       </div>
                       <div class="form-group">
-                          <label for="remember-me" class=""><span>Recordar</span> <span><input id="remember-me" name="remember-me" type="checkbox" class="loginCheck"></span></label><br>
                           <input type="submit" name="submit" class="btn btnForm  btn-md" value="Ingresar">
                       </div>
                       <div id="register-link" class="text-right ">

@@ -54,7 +54,9 @@ if ($user == null) {
           <li class="nav-item">
             <a class="nav-link" href="reportes/vistas/reportes.php">Reportes</a>
           </li>
-
+          <li class="nav-item">
+            <a class="nav-link" href="login.php">Salir</a>
+          </li>
         </ul>
       </div>
     </div>
@@ -68,7 +70,7 @@ if ($user == null) {
     <div class=" my-5 py-4 text-center">
       <div class="">
         <p class="mainBannerEmpleado m-0"> <?php echo $nombreEmpleado ?> !</p>
-        <p class=""> Bienvenido/a a Distir-Grajales </p>
+        <p class=""> Bienvenido/a a Distri-Grajales </p>
       </div>
     </div>
 
